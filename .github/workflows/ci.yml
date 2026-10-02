@@ -1,0 +1,77 @@
+name: CI and delivery
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.11', '3.12']
+    env:
+      MPLBACKEND: Agg
+      LORENZ_SOURCE_COMMIT: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+          cache-dependency-path: requirements.txt
+      - name: Install pinned runtime and build tools
+        run: |
+          python -m pip install -r requirements.txt
+          python -m pip install 'setuptools>=68' wheel
+          python -m pip install --no-build-isolation --no-deps -e .
+      - name: Check Python syntax
+        run: python -m compileall -q src tests
+      - name: Run automated numerical and integration tests
+        run: python -m unittest discover -s tests -v
+      - name: Run the documented example
+        run: python -m lorenz_lab --config examples/default.json --output results/ci
+      - name: Build the distributable wheel
+        run: python -m pip wheel --no-build-isolation --no-deps . --wheel-dir dist
+      - name: Upload the Python 3.12 delivery artifact
+        if: matrix.python == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: lorenz-delivery
+          path: |
+            dist/*.whl
+            results/ci/
+          if-no-files-found: error
+
+  release:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    needs: checks
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify the tag matches the package version
+        run: |
+          python -c "import os,tomllib; v=tomllib.load(open('pyproject.toml','rb'))['project']['version']; assert os.environ['GITHUB_REF_NAME']=='v'+v"
+      - uses: actions/download-artifact@v4
+        with:
+          name: lorenz-delivery
+          path: delivery
+      - name: Publish a versioned GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: gh release create "$GITHUB_REF_NAME" delivery/dist/*.whl --verify-tag --generate-notes
