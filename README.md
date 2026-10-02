@@ -78,7 +78,8 @@ The 26 test methods cover input validation, an exact exponential solution,
 equilibria, Lorenz symmetry, short-horizon convergence, computation limits,
 exports, checksums, and CLI behaviour. Tests use Python's `unittest` framework;
 no separate test runner is required. Local validation evidence is recorded in
-`docs/validation.json`. A local pass is not a GitHub Actions run.
+`docs/validation.json`. Both hosted Python jobs also passed all 26 methods;
+the run and job evidence is recorded in `docs/hosted_ci.json`.
 
 ## Repository structure
 
@@ -90,7 +91,9 @@ no separate test runner is required. Local validation evidence is recorded in
 - `.github/workflows/ci.yml`: checks and versioned package delivery.
 - `.github/ISSUE_TEMPLATE/`: reproducible defect reports.
 - `docs/issues/`: follow-up tasks prepared for the repository issue tracker.
-- `tools/publish_github.py`: publication through an authenticated GitHub CLI.
+- `docs/hosted_ci.json`: verified hosted tests, build and delivery artifact.
+- `docs/history_import.json`: correspondence between local and public commits.
+- `tools/publish_github.py`: optional publication helper for a new or empty repository.
 
 ## Git and CI/CD
 
@@ -110,9 +113,21 @@ repository permission.
 
 ## Public GitHub submission
 
-The authoritative publication state is `docs/publication.json`. It must contain
-the actual public repository and workflow URLs before submission. No GitHub URL
-or successful remote run is assumed from the presence of workflow files.
+The public repository is https://github.com/n1tr0oo/lorenz-lab.
+The workflow is available at
+https://github.com/n1tr0oo/lorenz-lab/blob/main/.github/workflows/ci.yml.
+The verified run at
+https://github.com/n1tr0oo/lorenz-lab/actions/runs/37061348092
+passed on Python 3.11 and 3.12. Each job ran all 26 tests, executed the default
+example and built the wheel. The Python 3.12 job retained `lorenz-delivery`.
+This run was a push to `main`; the tag-triggered release job was skipped.
+
+Clone the published project:
+
+```bash
+git clone https://github.com/n1tr0oo/lorenz-lab.git
+cd lorenz-lab
+```
 
 If using the supplied source package, restore its commit history first:
 
@@ -121,27 +136,18 @@ git clone repository.bundle lorenz-lab
 cd lorenz-lab
 ```
 
-Configure your Git name and email before publication. With GitHub CLI installed
-and signed into the intended personal account:
+The bundle retains the original local development commits. The public history
+reproduces their source trees and merge relationships with new commit metadata.
+`docs/history_import.json` maps the local and public commit IDs.
 
-```bash
-gh auth login
-python tools/publish_github.py --existing-repository n1tr0oo/lorenz-lab
-```
+The three follow-up tasks are tracked at:
 
-An empty public repository has already been created at
-https://github.com/n1tr0oo/lorenz-lab. Source upload and hosted CI execution are
-still pending. The existing-repository option checks that the signed-in account
-owns the public repository and that
-its default branch is empty. The helper pushes the existing history and creates
-the three documented follow-up issues. It refuses to run if an `origin` remote
-already exists. It records the real repository and workflow links. Check
-the Actions run after publication; remote runner results must be recorded
-separately from local validation. The tag can be pushed with
-`git push origin v0.1.0` after the first hosted checks pass.
+- https://github.com/n1tr0oo/lorenz-lab/issues/1 — browser adapter.
+- https://github.com/n1tr0oo/lorenz-lab/issues/2 — worker timeout.
+- https://github.com/n1tr0oo/lorenz-lab/issues/3 — further portability checks.
 
-For a different new repository, omit the existing-repository option and use
-`python tools/publish_github.py --name NEW_REPOSITORY_NAME`.
+`docs/publication.json` records the repository, workflow, verified run and issues.
+Windows execution and a tagged release remain separate follow-up checks.
 
 ## License
 

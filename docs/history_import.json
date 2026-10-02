@@ -1,0 +1,13 @@
+{
+  "description": "Public history reconstructs the local source trees and merge parents. A license initialization commit precedes the first imported commit. Commit IDs differ because the public commits have new publication metadata; source blob contents are unchanged.",
+  "initial_public_commit": "4f7a80202b960ec106df6c957ebb5deedd7e7cb1",
+  "commits": {
+    "51253c2d2c3cd9bcd0d89568edbba268cb4490af": "f33662b2268c6c4ae81221c60cba7296cc4e408c",
+    "34b79aec92341c9ddc12c798fda8f4a77896ed31": "dc562a27ccda6e4a7b600cb1a8623e5bb52e6d0d",
+    "1b616a609123c005ff89d7aaffbc41cefccf965f": "56e9627df1f11106dd2b4a1ab448e61a29589eac",
+    "993c75307d51e7e3b792be1616d4ff662e64171c": "b746c70b369ab52ea3381c4c2e23de1237a44c1b",
+    "6b4eff498035bec26cae46f12d83bd034bb5cbd5": "8c4af7f14276598f6f839e80215f1f686ebca63b",
+    "b82b96d993d5d7979d0179868f131e661026d862": "a49c104566181b6cc1c1afad1389b043215d505c",
+    "561d5f5fec7ed130707bdb3806d0c17940d9f5e8": "d5085cdb9e496937cba76ee635f6b891d0bdc5c9"
+  }
+}

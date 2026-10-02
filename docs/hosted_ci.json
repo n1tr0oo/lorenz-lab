@@ -1,0 +1,221 @@
+{
+  "run": {
+    "id": 37061348092,
+    "url": "https://github.com/n1tr0oo/lorenz-lab/actions/runs/37061348092",
+    "conclusion": "success",
+    "head_sha": "d5085cdb9e496937cba76ee635f6b891d0bdc5c9",
+    "python_versions": [
+      "3.11",
+      "3.12"
+    ],
+    "tests_per_job": 26
+  },
+  "jobs": [
+    {
+      "id": 111018479221,
+      "name": "checks (3.11)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 37061348092,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v6",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Install pinned runtime and build tools",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Check Python syntax",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run automated numerical and integration tests",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run the documented example",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Build the distributable wheel",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Upload the Python 3.12 delivery artifact",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        },
+        {
+          "name": "Post Run actions/checkout@v6",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19
+        }
+      ]
+    },
+    {
+      "id": 111018479759,
+      "name": "checks (3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 37061348092,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v6",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Install pinned runtime and build tools",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Check Python syntax",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run automated numerical and integration tests",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run the documented example",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Build the distributable wheel",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Upload the Python 3.12 delivery artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        },
+        {
+          "name": "Post Run actions/checkout@v6",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19
+        }
+      ]
+    },
+    {
+      "id": 111018674393,
+      "name": "release",
+      "status": "completed",
+      "conclusion": "skipped",
+      "run_id": 37061348092,
+      "logs_url": null,
+      "steps": null
+    }
+  ],
+  "artifact": {
+    "id": 11250806401,
+    "name": "lorenz-delivery",
+    "size_in_bytes": 529483,
+    "url": "https://api.github.com/repos/n1tr0oo/lorenz-lab/actions/artifacts/11250806401",
+    "archive_download_url": "https://api.github.com/repos/n1tr0oo/lorenz-lab/actions/artifacts/11250806401/zip",
+    "expired": false,
+    "created_at": "2026-10-02T20:33:55Z",
+    "expires_at": "2026-12-31T20:33:31Z",
+    "updated_at": "2026-10-02T20:33:55Z",
+    "digest": "sha256:8c9b69f20ca7864840db9dbef454700bcae63936984df68b4c3867865303a8b5",
+    "workflow_run": {
+      "id": 37061348092,
+      "repository_id": 1402264514,
+      "head_repository_id": 1402264514,
+      "head_branch": "main",
+      "head_sha": "d5085cdb9e496937cba76ee635f6b891d0bdc5c9"
+    }
+  },
+  "verified_test_logs": [
+    {
+      "job_id": 111018479221,
+      "python": "3.11",
+      "test_methods": 26,
+      "outcome": "OK"
+    },
+    {
+      "job_id": 111018479759,
+      "python": "3.12",
+      "test_methods": 26,
+      "outcome": "OK"
+    }
+  ]
+}

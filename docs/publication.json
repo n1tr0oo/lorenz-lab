@@ -1,8 +1,22 @@
 {
-  "status": "repository_created_source_pending",
+  "status": "published",
   "repository_url": "https://github.com/n1tr0oo/lorenz-lab",
-  "workflow_url": null,
-  "actions_url": null,
-  "verified_remote_run": null,
-  "issue_urls": []
+  "workflow_url": "https://github.com/n1tr0oo/lorenz-lab/blob/main/.github/workflows/ci.yml",
+  "actions_url": "https://github.com/n1tr0oo/lorenz-lab/actions",
+  "verified_remote_run": {
+    "id": 37061348092,
+    "url": "https://github.com/n1tr0oo/lorenz-lab/actions/runs/37061348092",
+    "conclusion": "success",
+    "head_sha": "d5085cdb9e496937cba76ee635f6b891d0bdc5c9",
+    "python_versions": [
+      "3.11",
+      "3.12"
+    ],
+    "tests_per_job": 26
+  },
+  "issue_urls": [
+    "https://github.com/n1tr0oo/lorenz-lab/issues/1",
+    "https://github.com/n1tr0oo/lorenz-lab/issues/2",
+    "https://github.com/n1tr0oo/lorenz-lab/issues/3"
+  ]
 }
