@@ -129,9 +129,18 @@ gh auth login
 python tools/publish_github.py --name lorenz-lab
 ```
 
-The helper creates a new public repository, pushes the existing history, and
-creates the three documented follow-up issues. It refuses to run if an `origin`
-remote already exists. It records the real repository and workflow links. Check
+An empty public repository has already been created at
+https://github.com/n1tr0oo/lorenz-lab. Source upload and hosted CI execution are
+still pending. To publish there instead of creating another repository, use:
+
+```bash
+python tools/publish_github.py --existing-repository n1tr0oo/lorenz-lab
+```
+
+This option checks that the signed-in account owns the public repository and that
+its default branch is empty. The helper pushes the existing history and creates
+the three documented follow-up issues. It refuses to run if an `origin` remote
+already exists. It records the real repository and workflow links. Check
 the Actions run after publication; remote runner results must be recorded
 separately from local validation. The tag can be pushed with
 `git push origin v0.1.0` after the first hosted checks pass.
