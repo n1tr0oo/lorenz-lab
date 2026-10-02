@@ -121,7 +121,8 @@ git clone repository.bundle lorenz-lab
 cd lorenz-lab
 ```
 
-With GitHub CLI installed and signed into the intended personal account:
+Configure your Git name and email before publication. With GitHub CLI installed
+and signed into the intended personal account:
 
 ```bash
 gh auth login

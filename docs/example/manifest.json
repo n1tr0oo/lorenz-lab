@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "module_version": "0.1.0",
+  "created_utc": "2026-10-02T18:48:19.355699+00:00",
+  "source_commit": "993c75307d51e7e3b792be1616d4ff662e64171c",
+  "config": {
+    "sigma": 10.0,
+    "rho": 28.0,
+    "beta": 2.6666666666666665,
+    "initial": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "duration": 30.0,
+    "sample_step": 0.01,
+    "transient": 5.0,
+    "rtol": 1e-09,
+    "atol": 1e-11
+  },
+  "solver": "DOP853",
+  "solver_completed": true,
+  "samples": 3001,
+  "rhs_evaluations": 16922,
+  "effective_sample_step": 0.01,
+  "transient_applies_to": "plots only; CSV retains every sample",
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8"
+  },
+  "sha256": {
+    "trajectory.csv": "28e3b463887186112e9b1d0f63df19666a1fa9a5e2456028c01e462939326f11",
+    "time_series.png": "f85453d55c07bab73806c76d9810c9207fba0be7339311199a50b775d3e3d2af",
+    "phase_portrait.png": "31ad0762aabdad0696a85a03100457b19763728e8f654db72f252ec6efebb403"
+  }
+}

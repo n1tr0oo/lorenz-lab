@@ -24,6 +24,7 @@ def main():
         parser.error("an origin remote already exists; refusing to create or overwrite it")
     if run("git", "status", "--porcelain"):
         parser.error("commit local changes before publication")
+    run("git", "var", "GIT_AUTHOR_IDENT")
     run("gh", "auth", "status")
     # A new repository is required; an existing-name conflict fails safely.
     run("gh", "repo", "create", args.name, "--public", "--source", ".",

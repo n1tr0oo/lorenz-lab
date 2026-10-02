@@ -1,0 +1,31 @@
+test_defaults_are_valid (test_core.ConfigurationTests.test_defaults_are_valid) ... ok
+test_rejects_boolean (test_core.ConfigurationTests.test_rejects_boolean) ... ok
+test_rejects_invalid_parameter_bounds (test_core.ConfigurationTests.test_rejects_invalid_parameter_bounds) ... ok
+test_rejects_invalid_state_values (test_core.ConfigurationTests.test_rejects_invalid_state_values) ... ok
+test_rejects_invalid_transient (test_core.ConfigurationTests.test_rejects_invalid_transient) ... ok
+test_rejects_nonfinite_scalar (test_core.ConfigurationTests.test_rejects_nonfinite_scalar) ... ok
+test_rejects_sampling_budget (test_core.ConfigurationTests.test_rejects_sampling_budget) ... ok
+test_rejects_tolerance_outside_policy (test_core.ConfigurationTests.test_rejects_tolerance_outside_policy) ... ok
+test_rejects_wrong_state_shape (test_core.ConfigurationTests.test_rejects_wrong_state_shape) ... ok
+test_evaluation_budget_stops_calculation (test_core.NumericalTests.test_evaluation_budget_stops_calculation) ... ok
+test_exact_exponential_solution (test_core.NumericalTests.test_exact_exponential_solution) ... ok
+test_known_derivative (test_core.NumericalTests.test_known_derivative) ... ok
+test_nonconfig_is_rejected (test_core.NumericalTests.test_nonconfig_is_rejected) ... ok
+test_nonzero_equilibrium (test_core.NumericalTests.test_nonzero_equilibrium) ... ok
+test_origin_is_stationary (test_core.NumericalTests.test_origin_is_stationary) ... ok
+test_output_grid_includes_endpoints (test_core.NumericalTests.test_output_grid_includes_endpoints) ... ok
+test_short_horizon_convergence (test_core.NumericalTests.test_short_horizon_convergence) ... ok
+test_state_limit_stops_calculation (test_core.NumericalTests.test_state_limit_stops_calculation) ... ok
+test_symmetry (test_core.NumericalTests.test_symmetry) ... ok
+test_cli_runs_valid_config (test_export_cli.CliTests.test_cli_runs_valid_config) ... ok
+test_defaults_are_valid_json (test_export_cli.CliTests.test_defaults_are_valid_json) ... ok
+test_invalid_json_returns_error (test_export_cli.CliTests.test_invalid_json_returns_error) ... ok
+test_unknown_config_key_returns_error (test_export_cli.CliTests.test_unknown_config_key_returns_error) ... ok
+test_existing_output_is_not_overwritten (test_export_cli.ExportTests.test_existing_output_is_not_overwritten) ... ok
+test_failed_export_leaves_no_partial_directory (test_export_cli.ExportTests.test_failed_export_leaves_no_partial_directory) ... ok
+test_manifest_checksums_and_raw_csv (test_export_cli.ExportTests.test_manifest_checksums_and_raw_csv) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.474s
+
+OK
