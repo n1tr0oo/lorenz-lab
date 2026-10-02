@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Интерактивный расчёт системы Лоренца: параметры, фазовый портрет, графики координат и экспорт CSV.">
+  <title>Lorenz Lab · Система Лоренца</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23151515'/%3E%3Ctext x='20' y='48' font-family='serif' font-size='48' fill='white'%3EL%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./assets/site.css">
+  <script type="module" src="./assets/app.mjs"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./"><span class="mark" aria-hidden="true">L</span>Lorenz Lab</a>
+    <nav aria-label="Навигация"><a href="#method">Метод расчёта</a><a href="https://github.com/n1tr0oo/lorenz-lab" target="_blank" rel="noopener">Исходный код <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="title">
+      <div><p class="eyebrow">ASTANA IT UNIVERSITY · NUMERICAL STUDY</p>
+        <h1 id="title">Система Лоренца</h1>
+        <p class="lead">Изменяйте параметры и начальные условия. Сравнивайте траектории и сохраняйте данные расчёта.</p>
+      </div>
+      <div class="equations" aria-label="Уравнения системы Лоренца">
+        <span><i>dx</i>/<i>dt</i> = σ(<i>y</i> − <i>x</i>)</span>
+        <span><i>dy</i>/<i>dt</i> = <i>x</i>(ρ − <i>z</i>) − <i>y</i></span>
+        <span><i>dz</i>/<i>dt</i> = <i>xy</i> − β<i>z</i></span>
+      </div>
+    </section>
+    <section class="workspace" aria-label="Расчёт и графики">
+      <aside class="controls">
+        <div class="section-top"><h2>Параметры</h2><span class="section-index">01</span></div>
+        <form id="config-form">
+          <label class="preset-label" for="preset">Пример</label>
+          <select id="preset"><option value="classic">Классические параметры · ρ = 28</option><option value="rho10">Меньшее значение · ρ = 10</option><option value="rho05">Малое значение · ρ = 0.5</option></select>
+          <fieldset><legend>Коэффициенты системы</legend>
+            <div class="field-row"><label for="sigma">σ <span>sigma</span></label><input id="sigma" name="sigma" type="number" min="0.001" max="100" step="any" value="10" required></div>
+            <div class="field-row"><label for="rho">ρ <span>rho</span></label><input id="rho" name="rho" type="number" min="0" max="200" step="any" value="28" required></div>
+            <div class="field-row"><label for="beta">β <span>beta</span></label><input id="beta" name="beta" type="number" min="0.001" max="50" step="any" value="2.6666666666666665" required></div>
+          </fieldset>
+          <fieldset><legend>Начальные координаты</legend>
+            <div class="initial-grid"><label for="x0">x₀<input id="x0" type="number" min="-100" max="100" step="any" value="1" required></label><label for="y0">y₀<input id="y0" type="number" min="-100" max="100" step="any" value="1" required></label><label for="z0">z₀<input id="z0" type="number" min="-100" max="100" step="any" value="1" required></label></div>
+          </fieldset>
+          <fieldset><legend>Интервал расчёта</legend>
+            <div class="field-row"><label for="duration">Длительность <span>единицы времени модели</span></label><input id="duration" type="number" min="0.1" max="50" step="any" value="30" required></div>
+            <div class="field-row"><label for="transient">Скрыть начало <span>только на графиках</span></label><input id="transient" type="number" min="0" max="49.9" step="any" value="5" required></div>
+          </fieldset>
+          <button id="run" class="primary" type="submit">Рассчитать <span aria-hidden="true">→</span></button>
+          <div class="secondary-actions"><button id="reset" type="button">Сбросить</button><button id="cancel" type="button" disabled>Отменить расчёт</button></div>
+          <p id="error" class="error" role="alert" hidden></p>
+        </form>
+        <p class="control-note">Расчёт выполняется на вашем устройстве. Все координаты и время безразмерны.</p>
+      </aside>
+      <div class="results">
+        <div class="result-top"><div><p class="eyebrow">РЕЗУЛЬТАТ РАСЧЁТА</p><p id="status" class="status" role="status" aria-live="polite">Подготовка примера…</p></div><span id="sample-count" class="sample-count">— отсчётов</span></div>
+        <section class="chart-section phase-section">
+          <div class="chart-heading"><h2>Фазовый портрет</h2><label class="projection-label" for="projection">Проекция <select id="projection"><option value="1,3">x – z</option><option value="1,2">x – y</option><option value="2,3">y – z</option></select></label></div>
+          <svg id="phase-chart" viewBox="0 0 760 390" role="img" aria-label="Фазовый портрет траектории системы Лоренца"><text x="380" y="195" text-anchor="middle">Выполняется расчёт…</text></svg>
+        </section>
+        <section class="chart-section time-section">
+          <div class="chart-heading"><h2>Координаты во времени</h2><div class="legend" aria-label="Условные обозначения"><span class="line-solid">x</span><span class="line-dashed">y</span><span class="line-dotted">z</span></div></div>
+          <svg id="time-chart" viewBox="0 0 760 250" role="img" aria-label="Графики координат x, y и z по времени"></svg>
+        </section>
+        <div class="export-row"><p id="run-caption">σ = 10 · ρ = 28 · β = 8/3</p><div><button id="download-csv" type="button" disabled>Скачать CSV <span aria-hidden="true">↓</span></button><button id="download-json" type="button" disabled>Данные расчёта <span aria-hidden="true">↓</span></button></div></div>
+      </div>
+    </section>
+    <section id="method" class="method">
+      <div><p class="eyebrow">О РАСЧЁТЕ</p><h2>Как читать результат</h2></div>
+      <div class="method-text"><p>Фазовый портрет показывает проекцию траектории на выбранную плоскость. Ниже приведены значения x, y и z во времени. Начальный интервал можно скрыть на графиках; CSV сохраняет все отсчёты.</p><p>Браузерная версия использует метод Рунге — Кутты четвёртого порядка с шагом не более 0.001. На коротком интервале её результат проверяется против Python-модуля с DOP853. Длительные хаотические траектории могут расходиться из-за численных погрешностей. Изображение само по себе не определяет режим системы.</p><p>Для воспроизводимого исследования используйте Python-модуль из репозитория: он поддерживает настройку допусков и записывает среду расчёта и контрольные суммы файлов.</p></div>
+    </section>
+  </main>
+  <footer><span>Lorenz Lab · Makhan Azat · 2026</span><span>Assignment 3 · MIT License</span></footer>
+  <noscript>Для изменения параметров и расчёта траектории включите JavaScript в браузере.</noscript>
+</body>
+</html>

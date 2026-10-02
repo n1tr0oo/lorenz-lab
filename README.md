@@ -6,7 +6,31 @@ and white plots, and a manifest recording each run's settings and file checksums
 
 The module supports the numerical foundation of an educational Lorenz platform.
 It does not train ML models, classify regimes, assess learning outcomes, or provide
-a web service. A plotted trajectory is not evidence that a model can predict chaos.
+a Python web service. A browser demo is supplied in `docs/index.html`; its
+calculation runs on the visitor's device. A plotted trajectory is not evidence
+that a model can predict chaos.
+
+## Browser demo
+
+The GitHub Pages entry point is `docs/index.html`. It provides parameter inputs,
+three phase-plane projections, time-series plots and CSV/JSON downloads.
+No Python server, account or external plotting library is required.
+
+The browser solver uses fixed-step RK4 with a maximum internal step of 0.001.
+This differs from the Python module's adaptive DOP853 solver. Twelve Node tests
+check numerical properties and validation. `tools/check_browser_solver.py`
+compares four one-unit cases against independent SciPy DOP853 references with a
+maximum absolute error below 2e-6 and checks improvement when the step is halved.
+These short-horizon checks do not certify long chaotic pointwise agreement.
+
+Browser initial coordinates are limited to -100 through 100. The UI terminates
+a worker after eight seconds; cancellation retains the previous completed result.
+CSV retains every sample, including the interval hidden on the charts. The JSON
+export records settings, method, step and the CSV's SHA-256 checksum.
+
+To preview locally, run `python -m http.server 8000 --directory docs` and open
+`http://localhost:8000`. For Pages, select `main` and `/docs` as the publishing
+source in the repository's Pages settings.
 
 ## Install and run
 
@@ -102,8 +126,9 @@ bulk results, environments, and credentials out of source control. Small example
 figures and validation records belong in documentation.
 
 The workflow runs on pull requests to `main`, pushes to `main`, version tags, and
-manual dispatch. Its Python 3.11/3.12 matrix runs syntax checks, tests, the example,
-and wheel builds. A successful Python 3.12 job retains the wheel and example
+manual dispatch. Its Python 3.11/3.12 matrix runs syntax checks, Python tests,
+browser tests, the SciPy comparison, the example and wheel builds.
+A successful Python 3.12 job retains the wheel and example
 outputs as an Actions artifact. A version tag matching `pyproject.toml` publishes
 the checked wheel as a GitHub release after both matrix jobs pass.
 

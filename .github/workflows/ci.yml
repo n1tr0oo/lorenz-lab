@@ -38,6 +38,13 @@ jobs:
         run: python -m compileall -q src tests
       - name: Run automated numerical and integration tests
         run: python -m unittest discover -s tests -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check browser numerical tests
+        run: node --test tests/browser_solver.test.mjs
+      - name: Compare browser calculation with SciPy
+        run: python tools/check_browser_solver.py
       - name: Run the documented example
         run: python -m lorenz_lab --config examples/default.json --output results/ci
       - name: Build the distributable wheel
