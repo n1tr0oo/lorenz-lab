@@ -25,6 +25,6 @@
     "isolated_install_smoke_test": "passed",
     "default_csv_matches_source_run": true
   },
-  "workflow_yaml": "parsed locally; hosted execution pending",
-  "github_run": null
+  "workflow_yaml": "parsed locally; hosted checks verified separately in docs/hosted_ci.json",
+  "github_run": "https://github.com/n1tr0oo/lorenz-lab/actions/runs/37061348092"
 }
