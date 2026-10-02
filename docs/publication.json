@@ -18,5 +18,29 @@
     "https://github.com/n1tr0oo/lorenz-lab/issues/1",
     "https://github.com/n1tr0oo/lorenz-lab/issues/2",
     "https://github.com/n1tr0oo/lorenz-lab/issues/3"
+  ],
+  "website_url": "https://n1tr0oo.github.io/lorenz-lab/",
+  "website_deployment": {
+    "provider": "GitHub Pages",
+    "source": "main:/docs",
+    "id": 37067941109,
+    "url": "https://github.com/n1tr0oo/lorenz-lab/actions/runs/37067941109",
+    "conclusion": "success",
+    "head_sha": "c35520900477fd4f8c496c316539632b19674034"
+  },
+  "browser_ci_run": {
+    "id": 37067872763,
+    "url": "https://github.com/n1tr0oo/lorenz-lab/actions/runs/37067872763",
+    "conclusion": "success",
+    "head_sha": "c35520900477fd4f8c496c316539632b19674034",
+    "node_tests_per_job": 12,
+    "scipy_reference_cases_per_job": 4
+  },
+  "website_ui_checks": [
+    "Default calculation: 3001 samples",
+    "rho=10 preset recalculation",
+    "x-y and x-z projection switching",
+    "Transient >= duration rejected",
+    "Reset restores default calculation"
   ]
 }

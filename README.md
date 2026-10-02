@@ -12,6 +12,8 @@ that a model can predict chaos.
 
 ## Browser demo
 
+[Open the interactive Lorenz Lab website](https://n1tr0oo.github.io/lorenz-lab/).
+
 The GitHub Pages entry point is `docs/index.html`. It provides parameter inputs,
 three phase-plane projections, time-series plots and CSV/JSON downloads.
 No Python server, account or external plotting library is required.
@@ -132,8 +134,9 @@ A successful Python 3.12 job retains the wheel and example
 outputs as an Actions artifact. A version tag matching `pyproject.toml` publishes
 the checked wheel as a GitHub release after both matrix jobs pass.
 
-This is package delivery. It does not deploy a hosted application or publish to
-PyPI. The release job alone has write permission; ordinary checks have read-only
+This workflow delivers the Python package; it does not publish to PyPI.
+GitHub Pages separately builds and deploys the browser demo from `main:/docs`.
+The release job alone has write permission; ordinary checks have read-only
 repository permission.
 
 ## Public GitHub submission
@@ -146,6 +149,12 @@ https://github.com/n1tr0oo/lorenz-lab/actions/runs/37061348092
 passed on Python 3.11 and 3.12. Each job ran all 26 tests, executed the default
 example and built the wheel. The Python 3.12 job retained `lorenz-delivery`.
 This run was a push to `main`; the tag-triggered release job was skipped.
+
+The browser addition passed both Python jobs, twelve Node tests per job and the
+four SciPy comparison cases in
+[run 37067872763](https://github.com/n1tr0oo/lorenz-lab/actions/runs/37067872763).
+The website was deployed successfully by
+[Pages run 37067941109](https://github.com/n1tr0oo/lorenz-lab/actions/runs/37067941109).
 
 Clone the published project:
 
