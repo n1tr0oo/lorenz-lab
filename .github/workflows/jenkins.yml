@@ -1,0 +1,66 @@
+name: Jenkins Docker research pipeline
+
+on:
+  push:
+    branches: [main, assignment-5-devops]
+    paths-ignore: ['docs/assignment5/evidence/**']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  jenkins:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Start Jenkins and execute the repository Jenkinsfile
+        env:
+          LORENZ_REF: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: python3 ci/run_jenkins.py
+      - name: Install browser for real interface screenshots
+        run: |
+          npm install --prefix "$RUNNER_TEMP/evidence-browser" playwright@1.56.1
+          "$RUNNER_TEMP/evidence-browser/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Capture Jenkins and deployed test website
+        env:
+          PLAYWRIGHT_MODULE: ${{ runner.temp }}/evidence-browser
+        run: node ci/capture_evidence.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jenkins-docker-evidence
+          path: docs/assignment5/evidence/
+          if-no-files-found: error
+      - name: Stop disposable controller and test containers
+        if: always()
+        run: |
+          docker rm -f lorenz-demo-1 lorenz-jenkins 2>/dev/null || true
+          docker volume rm lorenz-jenkins-home 2>/dev/null || true
+
+  preserve-evidence:
+    needs: jenkins
+    if: github.event_name == 'push' && github.ref == 'refs/heads/assignment-5-devops'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: assignment-5-devops
+      - uses: actions/download-artifact@v4
+        with:
+          name: jenkins-docker-evidence
+          path: docs/assignment5/evidence
+      - name: Keep public evidence with the assignment source
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/assignment5/evidence
+          git diff --cached --quiet || git commit -m "Record verified Jenkins pipeline and screenshots"
+          git push origin HEAD:assignment-5-devops
