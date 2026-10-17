@@ -7,13 +7,13 @@ const dest = 'docs/assignment5/evidence';
 const build = JSON.parse(fs.readFileSync(dest + '/provenance.json')).jenkins_build;
 const browser = await chromium.launch({headless: true});
 const page = await browser.newPage({viewport: {width: 1440, height: 1000}, deviceScaleFactor: 1.5});
-const jobUrl = 'http://127.0.0.1:8080/job/lorenz-lab/';
-await page.goto(jobUrl, {waitUntil: 'networkidle'});
-const stageHref = await page.getByRole('link', {name: 'Full Stage View', exact: true}).getAttribute('href');
-if (!stageHref) throw new Error('Jenkins did not expose the stage-view link');
-const stageUrl = new URL(stageHref, jobUrl).href;
+const buildUrl = `http://127.0.0.1:8080/job/lorenz-lab/${build}/`;
+await page.goto(buildUrl, {waitUntil: 'networkidle'});
+const stepsHref = await page.getByRole('link', {name: 'Pipeline Steps', exact: true}).getAttribute('href');
+if (!stepsHref) throw new Error('Jenkins did not expose the pipeline-steps link');
+const stepsUrl = new URL(stepsHref, buildUrl).href;
 const pages = [
-  ['01-jenkins-pipeline.png', stageUrl],
+  ['01-jenkins-pipeline.png', stepsUrl],
   ['02-jenkins-build.png', `http://127.0.0.1:8080/job/lorenz-lab/${build}/`],
   ['03-jenkins-tests.png', `http://127.0.0.1:8080/job/lorenz-lab/${build}/testReport/`],
   ['04-build-artifacts.png', `http://127.0.0.1:8080/job/lorenz-lab/${build}/artifact/results/run-1/`],
@@ -27,7 +27,11 @@ for (const [name, url] of pages) {
   const response = await page.goto(url, {waitUntil: 'networkidle', timeout: 60000});
   if (!response || response.status() >= 400) throw new Error(`Cannot capture ${url}: HTTP ${response?.status()}`);
   if (name === '01-jenkins-pipeline.png') {
-    await page.getByText('Repeat experiment', {exact: true}).first().waitFor();
+    const text = await page.locator('body').innerText();
+    console.log('Pipeline execution view:', page.url(), text.slice(0, 5000));
+    if (!text.includes('Checkout') || !text.includes('Unit tests')) {
+      throw new Error('The execution view did not show the expected pipeline steps');
+    }
   }
   if (url.endsWith('.json')) {
     await page.evaluate(() => { document.body.style.zoom = '150%'; });
