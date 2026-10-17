@@ -8,132 +8,132 @@
     {
       "name": "test_core.ConfigurationTests.test_defaults_are_valid",
       "outcome": "passed",
-      "seconds": 9.86430000011751e-05
+      "seconds": 0.0001019339999999147
     },
     {
       "name": "test_core.ConfigurationTests.test_rejects_boolean",
       "outcome": "passed",
-      "seconds": 6.0011000002191395e-05
+      "seconds": 6.913400000030379e-05
     },
     {
       "name": "test_core.ConfigurationTests.test_rejects_invalid_parameter_bounds",
       "outcome": "passed",
-      "seconds": 0.0002573690000104989
+      "seconds": 0.00023531600000126218
     },
     {
       "name": "test_core.ConfigurationTests.test_rejects_invalid_state_values",
       "outcome": "passed",
-      "seconds": 9.642999999925905e-05
+      "seconds": 0.00010508800001218788
     },
     {
       "name": "test_core.ConfigurationTests.test_rejects_invalid_transient",
       "outcome": "passed",
-      "seconds": 0.00012139700000091125
+      "seconds": 0.0001656379999985802
     },
     {
       "name": "test_core.ConfigurationTests.test_rejects_nonfinite_scalar",
       "outcome": "passed",
-      "seconds": 0.0001378890000012234
+      "seconds": 9.967299999402712e-05
     },
     {
       "name": "test_core.ConfigurationTests.test_rejects_sampling_budget",
       "outcome": "passed",
-      "seconds": 6.20019999928445e-05
+      "seconds": 7.290800000703257e-05
     },
     {
       "name": "test_core.ConfigurationTests.test_rejects_tolerance_outside_policy",
       "outcome": "passed",
-      "seconds": 6.025100000783823e-05
+      "seconds": 5.469299999560917e-05
     },
     {
       "name": "test_core.ConfigurationTests.test_rejects_wrong_state_shape",
       "outcome": "passed",
-      "seconds": 9.682300000690702e-05
+      "seconds": 9.528199998953824e-05
     },
     {
       "name": "test_core.NumericalTests.test_evaluation_budget_stops_calculation",
       "outcome": "passed",
-      "seconds": 0.00048029100000235303
+      "seconds": 0.0006010289999949237
     },
     {
       "name": "test_core.NumericalTests.test_exact_exponential_solution",
       "outcome": "passed",
-      "seconds": 0.0019550210000005563
+      "seconds": 0.0022626779999939117
     },
     {
       "name": "test_core.NumericalTests.test_known_derivative",
       "outcome": "passed",
-      "seconds": 0.00015425400000879108
+      "seconds": 0.0001851720000018986
     },
     {
       "name": "test_core.NumericalTests.test_nonconfig_is_rejected",
       "outcome": "passed",
-      "seconds": 4.159899999933714e-05
+      "seconds": 9.754299999542582e-05
     },
     {
       "name": "test_core.NumericalTests.test_nonzero_equilibrium",
       "outcome": "passed",
-      "seconds": 0.0013481120000022884
+      "seconds": 0.0016165210000025354
     },
     {
       "name": "test_core.NumericalTests.test_origin_is_stationary",
       "outcome": "passed",
-      "seconds": 0.0014697280000035562
+      "seconds": 0.0017104679999988548
     },
     {
       "name": "test_core.NumericalTests.test_output_grid_includes_endpoints",
       "outcome": "passed",
-      "seconds": 0.008313686999997572
+      "seconds": 0.009690661000007594
     },
     {
       "name": "test_core.NumericalTests.test_short_horizon_convergence",
       "outcome": "passed",
-      "seconds": 0.017046907000008105
+      "seconds": 0.01933823299999915
     },
     {
       "name": "test_core.NumericalTests.test_state_limit_stops_calculation",
       "outcome": "passed",
-      "seconds": 0.000888960000011707
+      "seconds": 0.0010814689999989469
     },
     {
       "name": "test_core.NumericalTests.test_symmetry",
       "outcome": "passed",
-      "seconds": 0.017503981999993812
+      "seconds": 0.02052983000000097
     },
     {
       "name": "test_export_cli.CliTests.test_cli_runs_valid_config",
       "outcome": "passed",
-      "seconds": 0.20753543799999363
+      "seconds": 0.22993916199999376
     },
     {
       "name": "test_export_cli.CliTests.test_defaults_are_valid_json",
       "outcome": "passed",
-      "seconds": 0.0005613760000073853
+      "seconds": 0.0006107760000020335
     },
     {
       "name": "test_export_cli.CliTests.test_invalid_json_returns_error",
       "outcome": "passed",
-      "seconds": 0.0006828380000030165
+      "seconds": 0.0006884360000043444
     },
     {
       "name": "test_export_cli.CliTests.test_unknown_config_key_returns_error",
       "outcome": "passed",
-      "seconds": 0.0005294759999969756
+      "seconds": 0.0005709219999943116
     },
     {
       "name": "test_export_cli.ExportTests.test_existing_output_is_not_overwritten",
       "outcome": "passed",
-      "seconds": 0.009600105000004078
+      "seconds": 0.011169213000002287
     },
     {
       "name": "test_export_cli.ExportTests.test_failed_export_leaves_no_partial_directory",
       "outcome": "passed",
-      "seconds": 0.010293780999987234
+      "seconds": 0.011962518999993677
     },
     {
       "name": "test_export_cli.ExportTests.test_manifest_checksums_and_raw_csv",
       "outcome": "passed",
-      "seconds": 0.18423572199999683
+      "seconds": 0.21084116299999778
     }
   ]
 }

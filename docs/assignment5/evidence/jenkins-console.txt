@@ -1,10 +1,10 @@
 Started
-Checking out git https://github.com/n1tr0oo/lorenz-lab.git into /var/jenkins_home/workspace/lorenz-lab@script/498eb6ce34fb24fa55e6599221f6912a096cd4e40affecf1657cb6b501d31a11 to read Jenkinsfile
+Checking out git https://github.com/n1tr0oo/lorenz-lab.git into /var/jenkins_home/workspace/lorenz-lab@script/068c0a14e97081b4ac0ea19a71c5ff41e1aa463cb85b6872226367bc18a2c6ce to read Jenkinsfile
 The recommended git tool is: NONE
 No credentials specified
 Cloning the remote Git repository
 Cloning repository https://github.com/n1tr0oo/lorenz-lab.git
- > git init /var/jenkins_home/workspace/lorenz-lab@script/498eb6ce34fb24fa55e6599221f6912a096cd4e40affecf1657cb6b501d31a11 # timeout=10
+ > git init /var/jenkins_home/workspace/lorenz-lab@script/068c0a14e97081b4ac0ea19a71c5ff41e1aa463cb85b6872226367bc18a2c6ce # timeout=10
 Fetching upstream changes from https://github.com/n1tr0oo/lorenz-lab.git
  > git --version # timeout=10
  > git --version # 'git version 2.47.3'
@@ -12,11 +12,11 @@ Fetching upstream changes from https://github.com/n1tr0oo/lorenz-lab.git
  > git config remote.origin.url https://github.com/n1tr0oo/lorenz-lab.git # timeout=10
  > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
 Avoid second fetch
- > git rev-parse eb88c120ff81ced372b87680f5881dad47457905^{commit} # timeout=10
-Checking out Revision eb88c120ff81ced372b87680f5881dad47457905 (detached)
+ > git rev-parse 315b6880c0dbeea31c314285793b45b8c0479a0f^{commit} # timeout=10
+Checking out Revision 315b6880c0dbeea31c314285793b45b8c0479a0f (detached)
  > git config core.sparsecheckout # timeout=10
- > git checkout -f eb88c120ff81ced372b87680f5881dad47457905 # timeout=10
-Commit message: "Retain research outputs and enlarge Jenkins stage and provenance evidence"
+ > git checkout -f 315b6880c0dbeea31c314285793b45b8c0479a0f # timeout=10
+Commit message: "Capture the Jenkins execution view with visible pipeline-step checks"
 First time build. Skipping changelog.
 [Pipeline] Start of Pipeline
 [Pipeline] node
@@ -41,11 +41,11 @@ Fetching upstream changes from https://github.com/n1tr0oo/lorenz-lab.git
  > git config remote.origin.url https://github.com/n1tr0oo/lorenz-lab.git # timeout=10
  > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
 Avoid second fetch
- > git rev-parse eb88c120ff81ced372b87680f5881dad47457905^{commit} # timeout=10
-Checking out Revision eb88c120ff81ced372b87680f5881dad47457905 (detached)
+ > git rev-parse 315b6880c0dbeea31c314285793b45b8c0479a0f^{commit} # timeout=10
+Checking out Revision 315b6880c0dbeea31c314285793b45b8c0479a0f (detached)
  > git config core.sparsecheckout # timeout=10
- > git checkout -f eb88c120ff81ced372b87680f5881dad47457905 # timeout=10
-Commit message: "Retain research outputs and enlarge Jenkins stage and provenance evidence"
+ > git checkout -f 315b6880c0dbeea31c314285793b45b8c0479a0f # timeout=10
+Commit message: "Capture the Jenkins execution view with visible pipeline-step checks"
 [Pipeline] script
 [Pipeline] {
 [Pipeline] sh
@@ -59,12 +59,12 @@ Commit message: "Retain research outputs and enlarge Jenkins stage and provenanc
 [Pipeline] stage
 [Pipeline] { (Unit tests)
 [Pipeline] sh
-+ docker build --target test --build-arg SOURCE_COMMIT=eb88c120ff81ced372b87680f5881dad47457905 -t lorenz-lab-tests:eb88c120ff81-1 .
++ docker build --target test --build-arg SOURCE_COMMIT=315b6880c0dbeea31c314285793b45b8c0479a0f -t lorenz-lab-tests:315b6880c0db-1 .
 DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
             Install the buildx component to build images with BuildKit:
             https://docs.docker.com/go/buildx/
 
-Sending build context to Docker daemon  597.5kB
+Sending build context to Docker daemon  598.5kB
 Step 1/19 : FROM python:3.12-slim-bookworm AS wheels
 3.12-slim-bookworm: Pulling from library/python
 7fd1ebe418b5: Pulling fs layer
@@ -72,12 +72,12 @@ Step 1/19 : FROM python:3.12-slim-bookworm AS wheels
 86a9e13e035d: Pulling fs layer
 f9d2fb07d6f0: Pulling fs layer
 f9d2fb07d6f0: Waiting
-6e0ba8ba0487: Verifying Checksum
-6e0ba8ba0487: Download complete
-7fd1ebe418b5: Verifying Checksum
-7fd1ebe418b5: Download complete
 86a9e13e035d: Verifying Checksum
 86a9e13e035d: Download complete
+6e0ba8ba0487: Verifying Checksum
+6e0ba8ba0487: Download complete
+7fd1ebe418b5: Download complete
+f9d2fb07d6f0: Verifying Checksum
 f9d2fb07d6f0: Download complete
 7fd1ebe418b5: Pull complete
 6e0ba8ba0487: Pull complete
@@ -87,13 +87,13 @@ Digest: sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258
 Status: Downloaded newer image for python:3.12-slim-bookworm
  ---> 4f228bc1cbcf
 Step 2/19 : WORKDIR /build
- ---> Running in f031fb140812
- ---> Removed intermediate container f031fb140812
- ---> 51d66156ee47
+ ---> Running in 129640bf8bf4
+ ---> Removed intermediate container 129640bf8bf4
+ ---> 07e752459b75
 Step 3/19 : COPY requirements.txt .
- ---> c30750a59ebf
+ ---> 64be546edb6e
 Step 4/19 : RUN python -m pip wheel --wheel-dir /wheels -r requirements.txt     && python -m pip install --no-cache-dir setuptools==80.9.0 wheel==0.45.1
- ---> Running in 19c179139298
+ ---> Running in bc488b162d18
 Collecting numpy==2.3.5 (from -r requirements.txt (line 1))
   Downloading numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
 Collecting scipy==1.17.0 (from -r requirements.txt (line 2))
@@ -119,20 +119,20 @@ Collecting python-dateutil==2.9.0.post0 (from -r requirements.txt (line 11))
 Collecting six==1.17.0 (from -r requirements.txt (line 12))
   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
 Downloading numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.6 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.6/16.6 MB 31.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.6/16.6 MB 33.0 MB/s eta 0:00:00
 Downloading scipy-1.17.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.0 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.0/35.0 MB 84.8 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.0/35.0 MB 81.7 MB/s eta 0:00:00
 Downloading matplotlib-3.10.8-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 117.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 121.2 MB/s eta 0:00:00
 Downloading contourpy-1.3.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (362 kB)
 Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
 Downloading fonttools-4.61.1-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl (5.0 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/5.0 MB 113.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/5.0 MB 82.5 MB/s eta 0:00:00
 Downloading kiwisolver-1.4.9-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.5 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 117.8 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 220.6 MB/s eta 0:00:00
 Downloading packaging-26.3-py3-none-any.whl (129 kB)
 Downloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 115.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 132.0 MB/s eta 0:00:00
 Downloading pyparsing-3.3.2-py3-none-any.whl (122 kB)
 Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
 Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
@@ -156,7 +156,7 @@ Saved /wheels/six-1.17.0-py2.py3-none-any.whl
 Collecting wheel==0.45.1
   Downloading wheel-0.45.1-py3-none-any.whl.metadata (2.3 kB)
 Downloading setuptools-80.9.0-py3-none-any.whl (1.2 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 25.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 31.7 MB/s eta 0:00:00
 Downloading wheel-0.45.1-py3-none-any.whl (72 kB)
 Installing collected packages: wheel, setuptools
 Successfully installed setuptools-80.9.0 wheel-0.45.1
@@ -164,46 +164,46 @@ Successfully installed setuptools-80.9.0 wheel-0.45.1
 [0m[91m
 [notice] A new release of pip is available: 25.0.1 -> 26.2.1
 [notice] To update, run: pip install --upgrade pip
-[0m ---> Removed intermediate container 19c179139298
- ---> c30ebb6d5237
+[0m ---> Removed intermediate container bc488b162d18
+ ---> 6dfc5a39cc1a
 Step 5/19 : COPY pyproject.toml README.md LICENSE ./
- ---> db7e6963e0aa
+ ---> 3fae0a31a150
 Step 6/19 : COPY src ./src
- ---> 1d68334ae1df
+ ---> c9ee6ad23650
 Step 7/19 : RUN python -m pip wheel --no-build-isolation --no-deps --wheel-dir /wheels .
- ---> Running in 79ec02dbd9d5
+ ---> Running in d33947d8cacd
 Processing /build
   Preparing metadata (pyproject.toml): started
   Preparing metadata (pyproject.toml): finished with status 'done'
 Building wheels for collected packages: lorenz-lab
   Building wheel for lorenz-lab (pyproject.toml): started
   Building wheel for lorenz-lab (pyproject.toml): finished with status 'done'
-  Created wheel for lorenz-lab: filename=lorenz_lab-0.1.0-py3-none-any.whl size=11092 sha256=8a00c5baf7482a598b626422c60bab2a06aeb9aa2b26ad5d49c37e546b904aa5
-  Stored in directory: /tmp/pip-ephem-wheel-cache-huf_lif4/wheels/7f/5c/67/61a4ca28ccbc7df61f55a044560f100aa81c66ef20585de495
+  Created wheel for lorenz-lab: filename=lorenz_lab-0.1.0-py3-none-any.whl size=11092 sha256=2c64812b35cf5032544a726ffc5fa3472c021cab80f327566a036752dc4658a9
+  Stored in directory: /tmp/pip-ephem-wheel-cache-f_2d3ft2/wheels/7f/5c/67/61a4ca28ccbc7df61f55a044560f100aa81c66ef20585de495
 Successfully built lorenz-lab
 [91m
 [notice] A new release of pip is available: 25.0.1 -> 26.2.1
 [notice] To update, run: pip install --upgrade pip
-[0m ---> Removed intermediate container 79ec02dbd9d5
- ---> 54e9d7aab6a0
+[0m ---> Removed intermediate container d33947d8cacd
+ ---> 7d285d73c1e7
 Step 8/19 : FROM python:3.12-slim-bookworm AS base
  ---> 4f228bc1cbcf
 Step 9/19 : ARG SOURCE_COMMIT=unknown
- ---> Running in dcbade4259ab
- ---> Removed intermediate container dcbade4259ab
- ---> 8072de0ff9a3
+ ---> Running in c68b84731cf5
+ ---> Removed intermediate container c68b84731cf5
+ ---> 83a65d470322
 Step 10/19 : LABEL org.opencontainers.image.title="Lorenz Lab"       org.opencontainers.image.source="https://github.com/n1tr0oo/lorenz-lab"       org.opencontainers.image.revision=$SOURCE_COMMIT
- ---> Running in fb851035109e
- ---> Removed intermediate container fb851035109e
- ---> eb83eda9d3b8
+ ---> Running in 6da5b7f321c1
+ ---> Removed intermediate container 6da5b7f321c1
+ ---> b2644a5efa7c
 Step 11/19 : ENV PYTHONDONTWRITEBYTECODE=1     PYTHONUNBUFFERED=1     MPLBACKEND=Agg     MPLCONFIGDIR=/tmp/matplotlib     LORENZ_SOURCE_COMMIT=$SOURCE_COMMIT
- ---> Running in 9182ce6b139f
- ---> Removed intermediate container 9182ce6b139f
- ---> 1e7249b214b6
+ ---> Running in 083323c08c76
+ ---> Removed intermediate container 083323c08c76
+ ---> 19ed584a3d6d
 Step 12/19 : COPY --from=wheels /wheels /wheels
- ---> 4c0bb1d48c01
+ ---> 1e1f7f0e87df
 Step 13/19 : RUN python -m pip install --no-cache-dir --no-index --find-links=/wheels lorenz-lab     && rm -rf /wheels     && groupadd --gid 10001 research     && useradd --uid 10001 --gid research --create-home research     && mkdir -p /data /reports     && chown research:research /data /reports
- ---> Running in f30b2bb20138
+ ---> Running in 03f81f05fbd6
 Looking in links: /wheels
 Processing /wheels/lorenz_lab-0.1.0-py3-none-any.whl
 Processing /wheels/numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (from lorenz-lab)
@@ -221,30 +221,30 @@ Processing /wheels/six-1.17.0-py2.py3-none-any.whl (from python-dateutil>=2.7->m
 Installing collected packages: six, pyparsing, pillow, packaging, numpy, kiwisolver, fonttools, cycler, scipy, python-dateutil, contourpy, matplotlib, lorenz-lab
 Successfully installed contourpy-1.3.3 cycler-0.12.1 fonttools-4.61.1 kiwisolver-1.4.9 lorenz-lab-0.1.0 matplotlib-3.10.8 numpy-2.3.5 packaging-26.3 pillow-12.3.0 pyparsing-3.3.2 python-dateutil-2.9.0.post0 scipy-1.17.0 six-1.17.0
 [91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-[0m ---> Removed intermediate container f30b2bb20138
- ---> e7154170a2a3
+[0m ---> Removed intermediate container 03f81f05fbd6
+ ---> 6872370bcb96
 Step 14/19 : WORKDIR /app
- ---> Running in fe005044ad8a
- ---> Removed intermediate container fe005044ad8a
- ---> 460cf68819bd
+ ---> Running in 39cadadaa76e
+ ---> Removed intermediate container 39cadadaa76e
+ ---> ccd18b1862a1
 Step 15/19 : FROM base AS test
- ---> 460cf68819bd
+ ---> ccd18b1862a1
 Step 16/19 : COPY tests ./tests
- ---> fa96e0e358d0
+ ---> bea634b764b4
 Step 17/19 : COPY tools/ci_test.py ./tools/ci_test.py
- ---> 44cb53724aa0
+ ---> 2b4a6d3894fe
 Step 18/19 : USER 10001:10001
- ---> Running in 422b9b826a82
- ---> Removed intermediate container 422b9b826a82
- ---> 296807c10f9b
+ ---> Running in 535327128ef3
+ ---> Removed intermediate container 535327128ef3
+ ---> 617c7c43a8c3
 Step 19/19 : ENTRYPOINT ["python", "/app/tools/ci_test.py", "--output", "/reports"]
- ---> Running in 794eabada4e1
- ---> Removed intermediate container 794eabada4e1
- ---> 84b7bd1c8f1f
-Successfully built 84b7bd1c8f1f
-Successfully tagged lorenz-lab-tests:eb88c120ff81-1
+ ---> Running in 6c53bf69574b
+ ---> Removed intermediate container 6c53bf69574b
+ ---> bda895c30261
+Successfully built bda895c30261
+Successfully tagged lorenz-lab-tests:315b6880c0db-1
 + status=0
-+ docker run --name lorenz-tests-1 lorenz-lab-tests:eb88c120ff81-1
++ docker run --name lorenz-tests-1 lorenz-lab-tests:315b6880c0db-1
 test_defaults_are_valid (test_core.ConfigurationTests.test_defaults_are_valid) ... ok
 test_rejects_boolean (test_core.ConfigurationTests.test_rejects_boolean) ... ok
 test_rejects_invalid_parameter_bounds (test_core.ConfigurationTests.test_rejects_invalid_parameter_bounds) ... ok
@@ -273,7 +273,7 @@ test_failed_export_leaves_no_partial_directory (test_export_cli.ExportTests.test
 test_manifest_checksums_and_raw_csv (test_export_cli.ExportTests.test_manifest_checksums_and_raw_csv) ... ok
 
 ----------------------------------------------------------------------
-Ran 26 tests in 0.464s
+Ran 26 tests in 0.525s
 
 OK
 + docker cp lorenz-tests-1:/reports/. reports/
@@ -289,117 +289,117 @@ Recording test results
 [Pipeline] stage
 [Pipeline] { (Build image)
 [Pipeline] sh
-+ docker build --target runtime --build-arg SOURCE_COMMIT=eb88c120ff81ced372b87680f5881dad47457905 -t lorenz-lab:eb88c120ff81-1 .
++ docker build --target runtime --build-arg SOURCE_COMMIT=315b6880c0dbeea31c314285793b45b8c0479a0f -t lorenz-lab:315b6880c0db-1 .
 DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
             Install the buildx component to build images with BuildKit:
             https://docs.docker.com/go/buildx/
 
-Sending build context to Docker daemon  597.5kB
+Sending build context to Docker daemon  598.5kB
 Step 1/27 : FROM python:3.12-slim-bookworm AS wheels
  ---> 4f228bc1cbcf
 Step 2/27 : WORKDIR /build
  ---> Using cache
- ---> 51d66156ee47
+ ---> 07e752459b75
 Step 3/27 : COPY requirements.txt .
  ---> Using cache
- ---> c30750a59ebf
+ ---> 64be546edb6e
 Step 4/27 : RUN python -m pip wheel --wheel-dir /wheels -r requirements.txt     && python -m pip install --no-cache-dir setuptools==80.9.0 wheel==0.45.1
  ---> Using cache
- ---> c30ebb6d5237
+ ---> 6dfc5a39cc1a
 Step 5/27 : COPY pyproject.toml README.md LICENSE ./
  ---> Using cache
- ---> db7e6963e0aa
+ ---> 3fae0a31a150
 Step 6/27 : COPY src ./src
  ---> Using cache
- ---> 1d68334ae1df
+ ---> c9ee6ad23650
 Step 7/27 : RUN python -m pip wheel --no-build-isolation --no-deps --wheel-dir /wheels .
  ---> Using cache
- ---> 54e9d7aab6a0
+ ---> 7d285d73c1e7
 Step 8/27 : FROM python:3.12-slim-bookworm AS base
  ---> 4f228bc1cbcf
 Step 9/27 : ARG SOURCE_COMMIT=unknown
  ---> Using cache
- ---> 8072de0ff9a3
+ ---> 83a65d470322
 Step 10/27 : LABEL org.opencontainers.image.title="Lorenz Lab"       org.opencontainers.image.source="https://github.com/n1tr0oo/lorenz-lab"       org.opencontainers.image.revision=$SOURCE_COMMIT
  ---> Using cache
- ---> eb83eda9d3b8
+ ---> b2644a5efa7c
 Step 11/27 : ENV PYTHONDONTWRITEBYTECODE=1     PYTHONUNBUFFERED=1     MPLBACKEND=Agg     MPLCONFIGDIR=/tmp/matplotlib     LORENZ_SOURCE_COMMIT=$SOURCE_COMMIT
  ---> Using cache
- ---> 1e7249b214b6
+ ---> 19ed584a3d6d
 Step 12/27 : COPY --from=wheels /wheels /wheels
  ---> Using cache
- ---> 4c0bb1d48c01
+ ---> 1e1f7f0e87df
 Step 13/27 : RUN python -m pip install --no-cache-dir --no-index --find-links=/wheels lorenz-lab     && rm -rf /wheels     && groupadd --gid 10001 research     && useradd --uid 10001 --gid research --create-home research     && mkdir -p /data /reports     && chown research:research /data /reports
  ---> Using cache
- ---> e7154170a2a3
+ ---> 6872370bcb96
 Step 14/27 : WORKDIR /app
  ---> Using cache
- ---> 460cf68819bd
+ ---> ccd18b1862a1
 Step 15/27 : FROM base AS test
- ---> 460cf68819bd
+ ---> ccd18b1862a1
 Step 16/27 : COPY tests ./tests
  ---> Using cache
- ---> fa96e0e358d0
+ ---> bea634b764b4
 Step 17/27 : COPY tools/ci_test.py ./tools/ci_test.py
  ---> Using cache
- ---> 44cb53724aa0
+ ---> 2b4a6d3894fe
 Step 18/27 : USER 10001:10001
  ---> Using cache
- ---> 296807c10f9b
+ ---> 617c7c43a8c3
 Step 19/27 : ENTRYPOINT ["python", "/app/tools/ci_test.py", "--output", "/reports"]
  ---> Using cache
- ---> 84b7bd1c8f1f
+ ---> bda895c30261
 Step 20/27 : FROM base AS runtime
- ---> 460cf68819bd
+ ---> ccd18b1862a1
 Step 21/27 : COPY examples ./examples
- ---> a0f2af91b4df
+ ---> b0e7da59d589
 Step 22/27 : COPY docs/index.html ./docs/index.html
- ---> 8ea43fcd8948
+ ---> c449672efd0a
 Step 23/27 : COPY docs/assets ./docs/assets
- ---> ddc81d3fa9ed
+ ---> 47c5f6dcbd22
 Step 24/27 : USER 10001:10001
- ---> Running in 8e2dcd8b9f95
- ---> Removed intermediate container 8e2dcd8b9f95
- ---> 7271fa80f669
+ ---> Running in 51a979fc115c
+ ---> Removed intermediate container 51a979fc115c
+ ---> d7d407b98106
 Step 25/27 : WORKDIR /data
- ---> Running in 0402f31f16a2
- ---> Removed intermediate container 0402f31f16a2
- ---> 79795a423dfd
+ ---> Running in 58c2c0ae201c
+ ---> Removed intermediate container 58c2c0ae201c
+ ---> 26f3b66d74c3
 Step 26/27 : ENTRYPOINT ["python", "-m", "lorenz_lab"]
- ---> Running in 4c8df813df9b
- ---> Removed intermediate container 4c8df813df9b
- ---> 72e373132c7c
+ ---> Running in fb574e925c69
+ ---> Removed intermediate container fb574e925c69
+ ---> 15a7acf618b1
 Step 27/27 : CMD ["--config", "/app/examples/default.json", "--output", "/data/default"]
- ---> Running in 2a4b23a3e805
- ---> Removed intermediate container 2a4b23a3e805
- ---> 7c488194d0a0
-Successfully built 7c488194d0a0
-Successfully tagged lorenz-lab:eb88c120ff81-1
-+ docker image inspect lorenz-lab:eb88c120ff81-1
+ ---> Running in 40f7c45059e7
+ ---> Removed intermediate container 40f7c45059e7
+ ---> 794d16ad141e
+Successfully built 794d16ad141e
+Successfully tagged lorenz-lab:315b6880c0db-1
++ docker image inspect lorenz-lab:315b6880c0db-1
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] stage
 [Pipeline] { (Repeat experiment)
 [Pipeline] sh
 + name=lorenz-run-1-1
-+ docker run --name lorenz-run-1-1 --tmpfs /tmp:rw,size=64m --cap-drop ALL --security-opt no-new-privileges lorenz-lab:eb88c120ff81-1
++ docker run --name lorenz-run-1-1 --tmpfs /tmp:rw,size=64m --cap-drop ALL --security-opt no-new-privileges lorenz-lab:315b6880c0db-1
 Saved 3001 samples and provenance to /data/default
 + mkdir -p results/run-1
 + docker cp lorenz-run-1-1:/data/default/. results/run-1/
 + docker rm lorenz-run-1-1
 lorenz-run-1-1
 + name=lorenz-run-1-2
-+ docker run --name lorenz-run-1-2 --tmpfs /tmp:rw,size=64m --cap-drop ALL --security-opt no-new-privileges lorenz-lab:eb88c120ff81-1
++ docker run --name lorenz-run-1-2 --tmpfs /tmp:rw,size=64m --cap-drop ALL --security-opt no-new-privileges lorenz-lab:315b6880c0db-1
 Saved 3001 samples and provenance to /data/default
 + mkdir -p results/run-2
 + docker cp lorenz-run-1-2:/data/default/. results/run-2/
 + docker rm lorenz-run-1-2
 lorenz-run-1-2
-+ python3 tools/verify_runs.py results/run-1 results/run-2 eb88c120ff81ced372b87680f5881dad47457905
++ python3 tools/verify_runs.py results/run-1 results/run-2 315b6880c0dbeea31c314285793b45b8c0479a0f
 + cat reports/repeatability.json
 {
   "passed": true,
-  "source_commit": "eb88c120ff81ced372b87680f5881dad47457905",
+  "source_commit": "315b6880c0dbeea31c314285793b45b8c0479a0f",
   "samples_per_run": 3001,
   "csv_byte_identical": true,
   "checksums_valid": true,
@@ -411,8 +411,8 @@ lorenz-run-1-2
 [Pipeline] stage
 [Pipeline] { (Deploy test site)
 [Pipeline] sh
-+ docker run -d --name lorenz-demo-1 --read-only --tmpfs /tmp --cap-drop ALL --security-opt no-new-privileges -p 127.0.0.1:8090:8000 --entrypoint python lorenz-lab:eb88c120ff81-1 -m http.server --bind 0.0.0.0 8000 --directory /app/docs
-7d805fedb191ca810093d09710fbb146602fd32fc226cdfaab88e5a29653b538
++ docker run -d --name lorenz-demo-1 --read-only --tmpfs /tmp --cap-drop ALL --security-opt no-new-privileges -p 127.0.0.1:8090:8000 --entrypoint python lorenz-lab:315b6880c0db-1 -m http.server --bind 0.0.0.0 8000 --directory /app/docs
+1777493ab96566a6423506a37173e29bf47450f213c51d4b293aec888ea7c124
 + python3 -
 [Pipeline] }
 [Pipeline] // stage
