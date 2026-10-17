@@ -1,0 +1,9 @@
+{
+  "github_run_url": "https://github.com/n1tr0oo/lorenz-lab/actions/runs/39001259750",
+  "source_commit": "ed24142005128cb3b054d90cf36b5915d7bfbbe7",
+  "jenkins_build": 1,
+  "jenkins_result": "SUCCESS",
+  "jenkins_scope": "Disposable real Jenkins controller hosted on the CI runner",
+  "controller_url": "http://127.0.0.1:8080",
+  "test_deployment_url": "http://127.0.0.1:8090/"
+}

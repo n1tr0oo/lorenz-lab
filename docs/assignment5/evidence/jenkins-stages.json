@@ -1,0 +1,104 @@
+{
+  "_links": {
+    "self": {
+      "href": "/job/lorenz-lab/1/wfapi/describe"
+    },
+    "artifacts": {
+      "href": "/job/lorenz-lab/1/wfapi/artifacts"
+    }
+  },
+  "id": "1",
+  "name": "#1",
+  "status": "SUCCESS",
+  "startTimeMillis": 1792209973271,
+  "endTimeMillis": 1792210035273,
+  "durationMillis": 62002,
+  "queueDurationMillis": 71,
+  "pauseDurationMillis": 0,
+  "stages": [
+    {
+      "_links": {
+        "self": {
+          "href": "/job/lorenz-lab/1/execution/node/8/wfapi/describe"
+        }
+      },
+      "id": "8",
+      "name": "Checkout",
+      "execNode": "",
+      "status": "SUCCESS",
+      "startTimeMillis": 1792209978491,
+      "durationMillis": 1331,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/lorenz-lab/1/execution/node/20/wfapi/describe"
+        }
+      },
+      "id": "20",
+      "name": "Unit tests",
+      "execNode": "",
+      "status": "SUCCESS",
+      "startTimeMillis": 1792209979837,
+      "durationMillis": 41413,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/lorenz-lab/1/execution/node/27/wfapi/describe"
+        }
+      },
+      "id": "27",
+      "name": "Build image",
+      "execNode": "",
+      "status": "SUCCESS",
+      "startTimeMillis": 1792210021264,
+      "durationMillis": 7193,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/lorenz-lab/1/execution/node/32/wfapi/describe"
+        }
+      },
+      "id": "32",
+      "name": "Repeat experiment",
+      "execNode": "",
+      "status": "SUCCESS",
+      "startTimeMillis": 1792210028469,
+      "durationMillis": 4899,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/lorenz-lab/1/execution/node/37/wfapi/describe"
+        }
+      },
+      "id": "37",
+      "name": "Deploy test site",
+      "execNode": "",
+      "status": "SUCCESS",
+      "startTimeMillis": 1792210033378,
+      "durationMillis": 1451,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/lorenz-lab/1/execution/node/42/wfapi/describe"
+        }
+      },
+      "id": "42",
+      "name": "Declarative: Post Actions",
+      "execNode": "",
+      "status": "SUCCESS",
+      "startTimeMillis": 1792210034847,
+      "durationMillis": 355,
+      "pauseDurationMillis": 0
+    }
+  ]
+}
