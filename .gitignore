@@ -7,3 +7,5 @@ dist/
 results/
 .coverage
 *.bundle
+!docs/assignment5/evidence/results/
+!docs/assignment5/evidence/results/**
