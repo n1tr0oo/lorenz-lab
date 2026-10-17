@@ -183,6 +183,14 @@ The three follow-up tasks are tracked at:
 `docs/publication.json` records the repository, workflow, verified run and issues.
 Windows execution and a tagged release remain separate follow-up checks.
 
+## Assignment 5 Docker and Jenkins extension
+
+The DevOps extension is documented in [docs/assignment5/README.md](docs/assignment5/README.md).
+It adds a Dockerfile with test and runtime targets, a real Jenkins pipeline,
+repeat-experiment checks, and automatic deployment of a temporary test website.
+GitHub Actions supplies a disposable host for Jenkins and retains screenshots.
+See the `assignment-5-devops` branch for this increment and its verified evidence.
+
 ## License
 
 MIT. Copyright 2026 Makhan Azat. See `LICENSE`.

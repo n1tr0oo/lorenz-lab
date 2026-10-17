@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "source_commit": "315b6880c0dbeea31c314285793b45b8c0479a0f",
+  "samples_per_run": 3001,
+  "csv_byte_identical": true,
+  "checksums_valid": true,
+  "scope": "Two executions of one image on one runner; no cross-platform bitwise claim",
+  "trajectory_sha256": "28e3b463887186112e9b1d0f63df19666a1fa9a5e2456028c01e462939326f11"
+}

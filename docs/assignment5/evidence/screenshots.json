@@ -1,0 +1,42 @@
+[
+  {
+    "file": "01-jenkins-pipeline.png",
+    "url": "http://127.0.0.1:8080/job/lorenz-lab/1/flowGraphTable/",
+    "http_status": 200
+  },
+  {
+    "file": "02-jenkins-build.png",
+    "url": "http://127.0.0.1:8080/job/lorenz-lab/1/",
+    "http_status": 200
+  },
+  {
+    "file": "03-jenkins-tests.png",
+    "url": "http://127.0.0.1:8080/job/lorenz-lab/1/testReport/",
+    "http_status": 200
+  },
+  {
+    "file": "04-build-artifacts.png",
+    "url": "http://127.0.0.1:8080/job/lorenz-lab/1/artifact/results/run-1/",
+    "http_status": 200
+  },
+  {
+    "file": "05-test-deployment.png",
+    "url": "http://127.0.0.1:8090/",
+    "http_status": 200
+  },
+  {
+    "file": "06-repeat-experiment.png",
+    "url": "http://127.0.0.1:8080/job/lorenz-lab/1/artifact/reports/repeatability.json",
+    "http_status": 200
+  },
+  {
+    "file": "07-run-manifest.png",
+    "url": "http://127.0.0.1:8080/job/lorenz-lab/1/artifact/results/run-1/manifest.json",
+    "http_status": 200
+  },
+  {
+    "file": "08-docker-image.png",
+    "url": "http://127.0.0.1:8080/job/lorenz-lab/1/artifact/reports/image-inspect.json",
+    "http_status": 200
+  }
+]

@@ -1,0 +1,163 @@
+{
+  "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+  "actions": [
+    {
+      "_class": "hudson.plugins.git.util.BuildData",
+      "buildsByBranchName": {
+        "detached": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 1,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "315b6880c0dbeea31c314285793b45b8c0479a0f",
+            "branch": [
+              {
+                "SHA1": "315b6880c0dbeea31c314285793b45b8c0479a0f",
+                "name": "detached"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "315b6880c0dbeea31c314285793b45b8c0479a0f",
+            "branch": [
+              {
+                "SHA1": "315b6880c0dbeea31c314285793b45b8c0479a0f",
+                "name": "detached"
+              }
+            ]
+          }
+        }
+      },
+      "lastBuiltRevision": {
+        "SHA1": "315b6880c0dbeea31c314285793b45b8c0479a0f",
+        "branch": [
+          {
+            "SHA1": "315b6880c0dbeea31c314285793b45b8c0479a0f",
+            "name": "detached"
+          }
+        ]
+      },
+      "remoteUrls": [
+        "https://github.com/n1tr0oo/lorenz-lab.git"
+      ],
+      "scmName": ""
+    },
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.libs.LibrariesAction"
+    },
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.cps.EnvActionImpl"
+    },
+    {
+      "_class": "hudson.tasks.junit.TestResultAction",
+      "failCount": 0,
+      "skipCount": 0,
+      "totalCount": 26,
+      "urlName": "testReport"
+    },
+    {},
+    {},
+    {},
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.displayurlapi.actions.RunDisplayAction"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.pipeline.modeldefinition.actions.RestartDeclarativePipelineAction"
+    },
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.views.FlowGraphAction"
+    },
+    {},
+    {}
+  ],
+  "artifacts": [
+    {
+      "displayPath": "deployment.json",
+      "fileName": "deployment.json",
+      "relativePath": "reports/deployment.json"
+    },
+    {
+      "displayPath": "image-inspect.json",
+      "fileName": "image-inspect.json",
+      "relativePath": "reports/image-inspect.json"
+    },
+    {
+      "displayPath": "junit.xml",
+      "fileName": "junit.xml",
+      "relativePath": "reports/junit.xml"
+    },
+    {
+      "displayPath": "repeatability.json",
+      "fileName": "repeatability.json",
+      "relativePath": "reports/repeatability.json"
+    },
+    {
+      "displayPath": "test-summary.json",
+      "fileName": "test-summary.json",
+      "relativePath": "reports/test-summary.json"
+    },
+    {
+      "displayPath": "run-1/manifest.json",
+      "fileName": "manifest.json",
+      "relativePath": "results/run-1/manifest.json"
+    },
+    {
+      "displayPath": "run-1/phase_portrait.png",
+      "fileName": "phase_portrait.png",
+      "relativePath": "results/run-1/phase_portrait.png"
+    },
+    {
+      "displayPath": "run-1/time_series.png",
+      "fileName": "time_series.png",
+      "relativePath": "results/run-1/time_series.png"
+    },
+    {
+      "displayPath": "run-1/trajectory.csv",
+      "fileName": "trajectory.csv",
+      "relativePath": "results/run-1/trajectory.csv"
+    },
+    {
+      "displayPath": "run-2/manifest.json",
+      "fileName": "manifest.json",
+      "relativePath": "results/run-2/manifest.json"
+    },
+    {
+      "displayPath": "run-2/phase_portrait.png",
+      "fileName": "phase_portrait.png",
+      "relativePath": "results/run-2/phase_portrait.png"
+    },
+    {
+      "displayPath": "run-2/time_series.png",
+      "fileName": "time_series.png",
+      "relativePath": "results/run-2/time_series.png"
+    },
+    {
+      "displayPath": "run-2/trajectory.csv",
+      "fileName": "trajectory.csv",
+      "relativePath": "results/run-2/trajectory.csv"
+    }
+  ],
+  "building": false,
+  "description": null,
+  "displayName": "#1",
+  "duration": 65781,
+  "estimatedDuration": 65781,
+  "executor": null,
+  "fullDisplayName": "lorenz-lab #1",
+  "id": "1",
+  "keepLog": false,
+  "number": 1,
+  "queueId": 1,
+  "result": "SUCCESS",
+  "timestamp": 1792210833878,
+  "url": "http://127.0.0.1:8080/job/lorenz-lab/1/",
+  "changeSets": [],
+  "culprits": [],
+  "inProgress": false,
+  "nextBuild": null,
+  "previousBuild": null
+}

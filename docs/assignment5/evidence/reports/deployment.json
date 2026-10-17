@@ -1,0 +1,6 @@
+{
+  "http_status": 200,
+  "title_contains_lorenz": true,
+  "endpoint": "http://127.0.0.1:8090/",
+  "scope": "temporary test service on the CI runner"
+}

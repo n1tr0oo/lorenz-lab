@@ -1,0 +1,87 @@
+[
+    {
+        "Id": "sha256:794d16ad141ef356b57d56b20bfb13ab9c16bd6076c633f07cdb2027248cf562",
+        "RepoTags": [
+            "lorenz-lab:315b6880c0db-1"
+        ],
+        "RepoDigests": [],
+        "Parent": "sha256:15a7acf618b1aba5bd08098c94adad187c95a3a772cbb8f968aa9ca60f130554",
+        "Comment": "",
+        "Created": "2026-10-17T04:21:32.340299213Z",
+        "DockerVersion": "28.0.4",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "10001:10001",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+                "PYTHON_VERSION=3.12.15",
+                "PYTHON_SHA256=c2c4321961fab0fb999d66e0cecf521c2ab3994c7992873ea99e306c1094fd5a",
+                "PYTHONDONTWRITEBYTECODE=1",
+                "PYTHONUNBUFFERED=1",
+                "MPLBACKEND=Agg",
+                "MPLCONFIGDIR=/tmp/matplotlib",
+                "LORENZ_SOURCE_COMMIT=315b6880c0dbeea31c314285793b45b8c0479a0f"
+            ],
+            "Cmd": [
+                "--config",
+                "/app/examples/default.json",
+                "--output",
+                "/data/default"
+            ],
+            "Image": "sha256:15a7acf618b1aba5bd08098c94adad187c95a3a772cbb8f968aa9ca60f130554",
+            "Volumes": null,
+            "WorkingDir": "/data",
+            "Entrypoint": [
+                "python",
+                "-m",
+                "lorenz_lab"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "org.opencontainers.image.revision": "315b6880c0dbeea31c314285793b45b8c0479a0f",
+                "org.opencontainers.image.source": "https://github.com/n1tr0oo/lorenz-lab",
+                "org.opencontainers.image.title": "Lorenz Lab"
+            }
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 503329586,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/d8ce9f344a9f1e574696ecfc6d9c009e56007b054319aaa97b3dfac5706a8261/diff:/var/lib/docker/overlay2/82a1714cc042fadc893b8b9b8e5178d1cec99b8c0e4dbf31df98920eb24bf7b4/diff:/var/lib/docker/overlay2/f1312513a2c26e7589704fd2b74d4c4de47c4d306a7a7d1640f63dac9fe258ed/diff:/var/lib/docker/overlay2/87fe49dba0a6a5850f2c0ecce2065a6b66990a3af8497a3db4e487bb3b8b45a3/diff:/var/lib/docker/overlay2/66989369de2b90cb69e52f27a6f8c5db97b6a22eb826e104489c071ed462e5aa/diff:/var/lib/docker/overlay2/b975fbdb0ae25cb870b06a4e30e19e2b55463b9c47d59e1a704a7669faad7501/diff:/var/lib/docker/overlay2/a85500b85483bb72446a5dbddc067f35d19897f4c483aa6dd537df5ad524d6b3/diff:/var/lib/docker/overlay2/a9fd81063b42d74ac606cb82094636723a252aa2f1665ebb021ac1324e360fae/diff:/var/lib/docker/overlay2/2a23f3055dc7c910e15d4630771a26ec99c05046216b7b3f70c3fabf920b1d51/diff",
+                "MergedDir": "/var/lib/docker/overlay2/5164a7abcc98ec25da8d9b6c184ca60c06aa4d5585cfd4950e66a9020601b122/merged",
+                "UpperDir": "/var/lib/docker/overlay2/5164a7abcc98ec25da8d9b6c184ca60c06aa4d5585cfd4950e66a9020601b122/diff",
+                "WorkDir": "/var/lib/docker/overlay2/5164a7abcc98ec25da8d9b6c184ca60c06aa4d5585cfd4950e66a9020601b122/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:e58989146fcec76699871403b9897b5c014af1ccd85f5a9300a215e7975525d7",
+                "sha256:916eda96356f5280ba200349e111e70c46d7ec98a4a3dd2c38e88f7b133c17ba",
+                "sha256:694fd645f7c3f2166f87f2929facc4eccb7e1cfda9bfb5d1373f77e6c9c57ea6",
+                "sha256:742affd58633b3e2b85ef86583f2775486468b1317f7214d12e193d948421098",
+                "sha256:8eb5c4144525927c3d8d4eb4b632c7b66d24dfdc761d70ce7b5afdd59e70e80e",
+                "sha256:c663241f81053377ff8571d7a270b8aedda274f1cbb9d6516e6a4529f90fcb75",
+                "sha256:8d665e2c1e64d572cf22621ac98aa1f8456079ec8f67cfcf677e3588896ddd53",
+                "sha256:5db6f05d273deeb4027730581952abf100e1c2484c16505e04ad3146b43704a0",
+                "sha256:299c85718164c7aae6693fbc4fd610f5320ff886e6d2dfe2e91e1093fc188b3a",
+                "sha256:3a153fa889476f737267d198be082ef8352e38440b3b12ae2ab83c98f577ec8c"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-10-17T04:21:33.036740388Z"
+        }
+    }
+]
